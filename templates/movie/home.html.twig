@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Homepage
+{% endblock %}
+
+{% block body %}
+<div class="d-flex flex-column p-2 m-1">
+    <div class="d-flex flex-row p-1 m-1">
+    {% for movie in movies %}
+        <div class="d-flex flex-column m-4 h-50">
+            <div class="card mb-3">
+                <h3 class="card-header">{{ movie.getTitre() }}</h3>
+                <div class="card-body">
+                </div>
+                <img class="movie-poster m-1" src="../../src/moviePoster.php?id={{ movie.getIdimage().getIdimage() }}">
+                <div class="card-body">
+                    <p class="card-text">
+                        {{ movie.getDescription() }}
+                    </p>
+                </div>
+                <div class="card-body">
+                    <a href="/movie/{{ movie.getIdfilm() }}" class="card-link">&rarr;read more</a>
+                </div>
+                <div class="card-footer text-muted">
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
